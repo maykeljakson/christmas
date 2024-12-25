@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Write a Note</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom, #fa7d7d, #fbd7d7);
+      color: #333;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+    }
+
+    h1 {
+      color: #f05d5d;
+      font-size: 2.5em;
+    }
+
+    textarea {
+      width: 90%;
+      height: 200px;
+      margin-top: 20px;
+      border: 2px solid #f05d5d;
+      border-radius: 10px;
+      padding: 15px;
+      font-size: 1.2em;
+      background: #fff;
+      color: #333;
+      outline: none;
+      resize: none;
+    }
+
+    .color-options {
+      margin-top: 20px;
+    }
+
+    .color-button {
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: 50%;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+
+    .save-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #f05d5d;
+      color: #fff;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .save-button:hover {
+      background: #d9534f;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #fa7d7d;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1.1em;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .back-link:hover {
+      background: #f05d5d;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Write a Note to Someone Special</h1>
+    <textarea id="noteInput" placeholder="Write your note here..."></textarea>
+
+    <div class="color-options">
+      <h3>Choose a Background Color for the Note Pad:</h3>
+      <button class="color-button" style="background: #fdd835;" onclick="changeColor('#fdd835')"></button>
+      <button class="color-button" style="background: #81c784;" onclick="changeColor('#81c784')"></button>
+      <button class="color-button" style="background: #64b5f6;" onclick="changeColor('#64b5f6')"></button>
+      <button class="color-button" style="background: #ff8a80;" onclick="changeColor('#ff8a80')"></button>
+      <button class="color-button" style="background: #20059b;" onclick="changeColor('#ff8a80')"></button>
+      <button class="color-button" style="background: #ccbb1f;" onclick="changeColor('#ff8a80')"></button>
+      <button class="color-button" style="background: #f183e3;" onclick="changeColor('#ff8a80')"></button>
+    </div>
+
+    <button class="save-button" onclick="saveNote()">Save Note</button>
+
+    <div style="margin-top: 20px;">
+      <a href="final.html" class="back-link">last Page</a>
+    </div>
+  </div>
+
+  <script>
+    const noteInput = document.getElementById('noteInput');
+
+    // Load saved note from localStorage
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedNote = localStorage.getItem('userNote');
+      if (savedNote) {
+        noteInput.value = savedNote;
+      }
+    });
+
+    // Save the note to localStorage
+    function saveNote() {
+      const note = noteInput.value;
+      localStorage.setItem('userNote', note);
+      alert('Your note has been saved!');
+    }
+
+    // Change the background color of the note pad
+    function changeColor(color) {
+      noteInput.style.background = color;
+    }
+  </script>
+</body>
+</html>

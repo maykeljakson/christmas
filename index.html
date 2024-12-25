@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Christmas Card</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom, #03b648, #d42a0c);
+      color: rgb(230, 215, 5);
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    .card-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    .card {
+      background: #c72c41;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      max-width: 500px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background: #ffffff;
+      color: #c72c41;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: #f1f1f1;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    #letterContent {
+      margin-top: 20px;
+      text-align: left;
+      line-height: 1.8;
+    }
+
+    .footer-design img {
+      width: 250px;
+      margin: 10px;
+    }
+
+    .next-page {
+      margin-top: 20px;
+      text-decoration: none;
+      background: #ffffff;
+      color: #c72c41;
+      padding: 10px 20px;
+      border-radius: 10px;
+      display: inline-block;
+      font-size: 16px;
+    }
+
+    .next-page:hover {
+      background: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+  <div class="card-container">
+    <div class="card">
+      <button id="openCard">Open Letter</button>
+      <div id="letterContent" class="hidden">
+        <audio id="backgroundMusic" loop>
+          <source src="santa.mp3" type="audio/mpeg">
+        </audio>
+        <h1>🎄 Merry Christmas! 🎅</h1>
+        <p>Dear Malwine,</p>
+        <p>As I browse through the internet watching walk tours, I stumbled upon a place near Berlin called Alexanderplatz. It is a historic site in Berlin, Germany. Watching the video, I saw the beauty of the place and how lively it is. Especially during Christmas, it becomes even more lovely because of the people who make it magical. </p>
+        <p>Having riches or pennies will not define the beauty of Christmas. It's the joy and connection with others that matter most. As a student, I don't have much, and I feel sorry for not sending you a letter earlier. I hope this online letter lightens your heart. Wishing you and your family a Merry Christmas filled with joy and blessings!</p>
+        <p>With love,</p>
+        <p>[Prince]</p>
+        <div class="footer-design">
+          <img src="filipinochristmas.jpeg" alt="Filipino">
+          <img src="alexanderplatz.jpeg" alt="Germany">
+        </div>
+      </div>
+    </div>
+    <a href="good-news.html" class="next-page">Next Page: Good News</a>
+  </div>
+  <script>
+    document.getElementById('openCard').addEventListener('click', function() {
+      document.getElementById('letterContent').classList.remove('hidden');
+      document.getElementById('backgroundMusic').play();
+    });
+  </script>
+</body>
+</html>

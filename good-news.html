@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Good News and Updates</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom, #c70808, #dbf10f);
+      color: #e2d9d9;
+      margin: 0;
+      padding: 0;
+    }
+
+    .snow-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden; /* Ensures snowflakes stay within this container */
+    }
+
+    .content-container {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .news-section {
+      margin-bottom: 40px;
+      text-align: center;
+      padding: 20px;
+      border: 1px solid #cc0c0c;
+      border-radius: 10px;
+      background: #07be5a;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .news-section img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .news-description {
+      margin-top: 10px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* Snowflake Styles */
+    .snowflake {
+      position: absolute;
+      top: -10px;
+      font-size: 24px;
+      color: white;
+      animation: fall 10s linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(100vh);
+      }
+    }
+
+    @keyframes drift {
+      0%, 100% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(20px);
+      }
+    }
+
+    .snowflake:nth-child(odd) {
+      animation: fall 10s linear infinite, drift 5s ease-in-out infinite;
+    }
+
+    .snowflake:nth-child(even) {
+      animation: fall 10s linear infinite, drift 7s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body>
+  
+  <audio id="backgroundMusic" loop>
+    <source src="bestday.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <button id="playMusic" style="position: fixed; top: 10px; right: 10px; padding: 10px; background: #07be5a; color: #fff; border: none; border-radius: 5px; cursor: pointer;">
+    🎵 Play Music
+  </button>
+  <!-- Snowflakes -->
+  <div class="snow-container" id="snowflakes"></div>
+
+  <!-- Main Content -->
+  <div class="content-container">
+    <h1 style="text-align: center;">🎉 Good News and Updates 🎉</h1>
+    
+    <!-- Section 1 -->
+    <div class="news-section">
+      <img src="pic1.jpg" alt="Good News 1">
+      <div class="news-description">
+        <p>A photo with my best friend during our Amplify Got Talent. We often do karaoke in arcades near malls in our area.</p>
+      </div>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="news-section">
+      <img src="pic2.jpg" alt="Good News 2">
+      <div class="news-description">
+        <p>This photo is also of my most trusted trainee in my ministry on camera livestreaming. He is active and also a good listener!</p>
+      </div>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="news-section">
+      <img src="pic3.jpg" alt="Good News 3">
+      <div class="news-description">
+        <p>And this is Amplify Lifegroup (half of it, as others are still eating their meals). This is my family in church, and I am the eldest of them. Even though I am the eldest, my age doesn’t matter; I still manage to keep up with their vibe.</p>
+      </div>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="news-section">
+      <img src="pic4.2.jpg" alt="Good News 4">
+      <div class="news-description">
+        <p>We went to a near flea market to see if there something good to buy for Christmas but some are not yet on sale. We might come there in upcoming days.</p>
+      </div>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="news-section">
+      <img src="pic5.jpg" alt="Good News 5">
+      <div class="news-description">
+        <p>A SMALL MERRY CHRISTMAS GREETING!</p>
+      </div>
+    </div>
+  </div>
+  
+  <div style="text-align: center; margin-top: 40px;">
+    <a href="vision.html" style="color: #fff; text-decoration: none; background: #cc0c0c; padding: 10px 20px; border-radius: 5px; display: inline-block;">
+      Go to Vision Page
+    </a>
+  </div>
+
+  <script>
+    const backgroundMusic = document.getElementById('backgroundMusic');
+    const playButton = document.getElementById('playMusic');
+
+    playButton.addEventListener('click', () => {
+      backgroundMusic.play();
+      playButton.style.display = 'none'; // Hide button after starting the music
+    });
+
+    // Existing snowflake script
+    const snowflakeContainer = document.getElementById('snowflakes');
+    function createSnowflake() {
+      const snowflake = document.createElement('div');
+      snowflake.textContent = '❄';
+      snowflake.className = 'snowflake';
+      snowflake.style.left = Math.random() * 100 + 'vw';
+      snowflake.style.animationDelay = Math.random() * 5 + 's';
+      snowflake.style.fontSize = Math.random() * 10 + 15 + 'px';
+      snowflakeContainer.appendChild(snowflake);
+      setTimeout(() => {
+        snowflake.remove();
+      }, 10000);
+    }
+    setInterval(createSnowflake, 200);
+  </script>
+</body>
+</html>
